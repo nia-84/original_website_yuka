@@ -1,12 +1,5 @@
-    document.getElementById("moreViewBtn").addEventListener("click", function () {
-        const moreMovie = document.querySelector(".more-movie");
-        const isHidden = moreMovie.style.display === "none" || moreMovie.style.display === "";
-        
-        moreMovie.style.display = isHidden ? "block" : "none";
-        this.textContent = isHidden ? "Close" : "More View";
-    });
 
-    const slides = document.querySelectorAll("#slideshow img");
+    const slides = document.querySelectorAll("#members img");
         let current = 0;
 
         function showSlide(index) {
@@ -25,3 +18,20 @@
 
   // 3秒ごとに次へ
     setInterval(nextSlide, 3000);
+
+//-------------------------------------------
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const sliders = document.querySelectorAll(".member-slider");
+
+        sliders.forEach(slider => {
+            const wrapper = slider.querySelector(".slider-wrapper");
+            const slides = slider.querySelectorAll(".slide");
+            let currentIndex = 0;
+
+    setInterval(() => {
+            currentIndex = (currentIndex + 1) % slides.length;
+                wrapper.style.transform = `translateX(-${100 * currentIndex}%)`;
+            }, 3000); // 3秒ごとに切り替え
+        });
+    });

@@ -12,14 +12,9 @@ html, body {
     overflow-x: hidden; /* 横スクロール防止 */
 }
 
-body{
-    background-image: url("../img/background.jpeg");
-    background-size: cover;
-    background-position: top center;  /* 例えば、上の方だけ見せたい時 */
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+body {
+        background: linear-gradient(to bottom, #ffa4cf, #8cb7ef)
 }
-
 
 header{
     display: flex;
@@ -74,44 +69,89 @@ header{
     display: block;
 }
 
-#youtube-section{
+.youtube-section {
     text-align: center;
-    padding: 50px 20px;
-    background-color: rgba(0, 0, 0, 0.6); /* 半透明背景でもOK */
-    color: white;
+    padding: 60px 20px;
 }
 
-.youtube-main iframe,
-.youtube-hidden iframe {
-    width: 80%;
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding-bottom: 25%; 
+    height: 0;
+}
+
+.side-logo{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.left-side,
+.right-side {
+    position: absolute;
+    top: 50%;
+    width: 600px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+/* 左側配置：X=-80%, Y=-50% */
+.left-side {
+    left: 0;
+    transform: translate(-80%, -30%);
+}
+
+/* 右側配置：X=80%, Y=-50% */
+.right-side {
+    right: 0;
+    transform: translate(80%, -30%);
+}
+
+/* hover時に上下だけプラスαで動かす */
+.left-side:hover {
+    transform: translate(-80%, -60%);
+}
+
+.right-side:hover {
+    transform: translate(80%, -60%);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     max-width: 800px;
     height: 450px;
-    border: none;
-    margin: 20px auto;
-    display: block;
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-}
-
-#more-button {
-    padding: 10px 30px;
-    margin-top: 20px;
-    font-size: 18px;
-    background-color: #8a2be2;
-    color: white;
     border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
 }
 
-#more-button:hover {
-    background-color: #a95bf9;
+.member-slider {
+    width: 100%;
+    overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
 }
 
-.youtube-hidden {
-    display: none;
-    margin-top: 30px;
+.slider-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+}
+
+.slide {
+    width: 250px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
 
