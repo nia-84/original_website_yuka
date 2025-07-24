@@ -9,7 +9,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* 横スクロール防止 */
+    overflow-x: hidden; 
 }
 
 body {
@@ -20,7 +20,6 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #a52a2a; */
 }
 
 .site-header{
@@ -31,6 +30,10 @@ header{
     background-color: rgba(251, 251, 251, 0.5); ;
 }
 
+/* ++++++++++++++
+| nav
+++++++++++++++*/
+
 .nav-menu li {
     font-size: 16px;
     cursor: pointer;
@@ -38,7 +41,7 @@ header{
 }
 
 .nav-menu li:hover {
-    color: #4159e3;
+    color: #ff5efa;
     background-color: rgba(255, 255, 255, 0.2); 
     border-radius: 5px;
 }
@@ -56,6 +59,10 @@ header{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 } 
 
+/* ++++++++++++++
+| logo
+++++++++++++++*/
+
 .logo-area, .logo-area img{
     background-color: transparent !important;
     width: 150px;
@@ -69,10 +76,25 @@ header{
     display: block;
 }
 
+
+/* ++++++++++++++
+| youtube
+| side-logo
+++++++++++++++*/
+
 .youtube-section {
     text-align: center;
     padding: 60px 20px;
 }
+
+.section-divider {
+    height: 4px;
+    background-color: #f5dbf4;
+    margin: 50px 0;
+    width: 100%;
+    opacity: 0.5;
+}
+
 
 .video-wrapper {
     position: relative;
@@ -132,28 +154,145 @@ header{
     border: none;
 }
 
-.member-slider {
+/* ++++++++++++++
+| karina-slide
+++++++++++++++*/
+
+.karina-slider {
     width: 100%;
     overflow: hidden;
-    max-width: 800px;
-    margin: 0 auto;
     position: relative;
+    max-width: auto; 
+    margin: 0 auto;
+    padding-top: 50px;
+    font-family: "Luckiest Guy", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
-.slider-track {
-    display: flex;
-    gap: 20px;
-    width: max-content;
+.karina-slider .slider-wrapper {
+    display: flex; /* 横並び */
+    transition: transform 0.5s ease;
+    margin-top: 40px;
 }
 
-.slide {
-    width: 250px;
+.karina-slider .slider-wrapper img {
+    width: 300px; /* ← サイズ変更ここ！好きなサイズに */
     height: auto;
-    border-radius: 12px;
     object-fit: cover;
-    flex-shrink: 0;
+    margin-right: 10px; /* 画像間の余白 */
+}  
+
+.karina-slider .slider-wrapper {
+    display: flex;
+    animation: slideLeft 30s linear infinite;
 }
 
+@keyframes slideLeft {
+    0% {
+    transform: translateX(0%);
+    }
+        100% {
+    transform: translateX(-50%);
+    }
+}
+
+/* ++++++++++++++
+| winter-slide
+++++++++++++++*/
+
+.winter-slider .slider-wrapper {
+    display: flex; /* 横並び */
+    transition: transform 0.5s ease;
+    margin-top: 60px;
+}
+
+.winter-slider .slider-wrapper img {
+    width: 300px; /* ← サイズ変更ここ！好きなサイズに */
+    height: auto;
+    object-fit: cover;
+    margin-right: 10px; /* 画像間の余白 */
+}  
+
+.winter-slider .slider-wrapper {
+    display: flex;
+    animation: slideLeft 30s linear infinite;
+}
+
+@keyframes slideLeft {
+    0% {
+    transform: translateX(0%);
+    }
+        100% {
+    transform: translateX(-50%);
+    }
+}
+
+/* ++++++++++++++
+| ningning-slide
+++++++++++++++*/
+
+.ningning-slider .slider-wrapper {
+    display: flex; /* 横並び */
+    transition: transform 0.5s ease;
+    margin-top: 60px;
+}
+
+.ningning-slider .slider-wrapper img {
+    width: 300px; /* ← サイズ変更ここ！好きなサイズに */
+    height: auto;
+    object-fit: cover;
+    margin-right: 10px; /* 画像間の余白 */
+}  
+
+.ningning-slider .slider-wrapper {
+    display: flex;
+    animation: slideLeft 30s linear infinite;
+}
+
+@keyframes slideLeft {
+    0% {
+    transform: translateX(0%);
+    }
+        100% {
+    transform: translateX(-50%);
+    }
+}
+
+/* ++++++++++++++
+| giselle-slide
+++++++++++++++*/
+
+.giselle-slider .slider-wrapper {
+    display: flex; /* 横並び */
+    transition: transform 0.5s ease;
+    margin-top: 60px;
+}
+
+.giselle-slider .slider-wrapper img {
+    width: 300px; /* ← サイズ変更ここ！好きなサイズに */
+    height: auto;
+    object-fit: cover;
+    margin-right: 10px; /* 画像間の余白 */
+}  
+
+.giselle-slider .slider-wrapper {
+    display: flex;
+    animation: slideLeft 30s linear infinite;
+}
+
+@keyframes slideLeft {
+    0% {
+    transform: translateX(0%);
+    }
+        100% {
+    transform: translateX(-50%);
+    }
+}
+
+/* ++++++++++++++
+| slide-top
+++++++++++++++*/
 
 #members {
     position: relative;
@@ -176,13 +315,83 @@ header{
     opacity: 1;
 }
 
+/* ++++++++++++++
+| member-profile
+++++++++++++++*/
 
-.member-section img{
-    width: 300px;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin: 0 10px;
-
+.member-section {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 20px;
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 0 20px;
 }
 
+.member-card {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.member-photo-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.member-photo-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.4s ease;
+}   
+
+.front{
+    z-index: 2;
+    opacity: 1;
+}
+
+.back{
+    z-index: 1;
+    opacity: 0;
+}
+
+.member-photo-wrapper:hover .back {
+    opacity: 1;
+}
+
+.member-photo-wrapper:hover .front {
+    opacity: 0;
+}
+
+.member-info {
+    margin-top: 12px;
+    color: white;
+}
+
+/* ++++++++++++++
+| footer
+++++++++++++++*/
+
+.site-footer {
+    background-color: #ffa4cf;
+    color: #ffffff;          
+    text-align: center;
+    padding: 40px 0;
+    font-size: 14px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}

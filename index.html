@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>original_website</title>
+    <link rel="stylesheet" href="./assets/css/ reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
@@ -16,8 +17,8 @@
             <nav class="nav-menu">
                 <ul>
                     <li><span class="menu-word">HOME</span></li>
-                    <li><span class="menu-word">DISCOGRAPHY</span></li>
                     <li><span class="menu-word">MOVIE</span></li>
+                    <li><span class="menu-word">GRAPHY</span></li>
                     <li><span class="menu-word">PROFILE</span></li>
                     <li><span class="menu-word">GOODS</span></li>
                     <li><span class="menu-word">FANCLUB</span></li>
@@ -40,6 +41,7 @@
     </section>
 
     <section class="youtube-section">
+                <div class="section-divider"></div>
         <div class="video-wrapper">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/rEmlS18xtRg?si=uvMcjbtxVS0WLNXH" 
                 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -50,9 +52,11 @@
                     <img src="./assets/img/moni_aespa2.png" alt="right-side" class="right-side">
                 </div>
         </div>
+    </section>
 
-    <section class="member-slider">
-        <div class="slider-wrapper">
+    <section class="karina-slider">
+                <div class="section-divider"></div>
+            <div class="slider-wrapper">
                 <img src="./assets/img/karina/karina_armageddon.jpg" alt="" class="slide">
                 <img src="./assets/img/karina/karina_armageddon2.jpg" alt="" class="slide">
                 <img src="./assets/img/karina/karina_betterthing.jpg" alt="" class="slide">
@@ -90,10 +94,11 @@
                 <img src="./assets/img/karina/karina_savage2.jpg" alt="" class="slide">
                 <img src="./assets/img/karina/karina_spicy.jpg" alt="" class="slide">
                 <img src="./assets/img/karina/karina_supernova.jpg" alt="" class="slide">
-        </div>
+            </div>
     </section>
     
-    <section class="member-slider">
+    <section class="winter-slider">
+            <div class="section-divider"></div>
         <div class="slider-wrapper">
                 <img src="./assets/img/winter/winster_blackmamba.jpg" alt="" class="slide">
                 <img src="./assets/img/winter/winter_armageddon.jpg" alt="" class="slide">
@@ -135,7 +140,8 @@
         </div>
     </section>
 
-    <section class="member-slider">
+    <section class="ningning-slider">
+            <div class="section-divider"></div>
         <div class="slider-wrapper">
                 <img src="./assets/img/ningning/ningning_armageddon.jpg" alt="" class="slide">
                 <img src="./assets/img/ningning/ningning_armageddon2.jpg" alt="" class="slide">
@@ -177,8 +183,9 @@
         </div>
     </section> 
 
-    <section class="member-slider">
-        <div class="slider-wrapper">
+    <section class="giselle-slider">
+                <div class="section-divider"></div>
+            <div class="slider-wrapper">           
                 <img src="./assets/img/giselle/giselle_armageddon.jpg" alt="" class="slide">
                 <img src="./assets/img/giselle/giselle_armageddon2.jpg" alt="" class="slide">
                 <img src="./assets/img/giselle/giselle_betterthing.jpg" alt="" class="slide">
@@ -216,13 +223,17 @@
                 <img src="./assets/img/giselle/giselle_savege2.jpg" alt="" class="slide">
                 <img src="./assets/img/giselle/giselle_spicy.jpg" alt="" class="slide">
                 <img src="./assets/img/giselle/giselle_supernova.jpg" alt="" class="slide">
-        </div>
+            </div>
     </section>
 
+    <div class="section-divider"></div>
     <section class="member-section">
-        <div class="member-card" onclick="showProfile('Karina')">
-            <img src="./assets/img/Karina_up.jpg" alt="" class="member-photo">
-            <img src="./assets/img/Karina_all.jpg" alt="" class="member-photo">
+        
+            <div class="member-card" onclick="showProfile('Karina')">
+                <div class="member-photo-wrapper">
+                <img src="./assets/img/Karina_up.jpg" alt="" class="front">
+                <img src="./assets/img/Karina_all.jpg" alt="" class="back">
+            </div>
             <div class="member-info">
                 <h1>KARINA</h1>
                 <p>NAME: KARINA</p>
@@ -231,8 +242,10 @@
         </div>
 
         <div class="member-card" onclick="showProfile('Winter')">
-            <img src="./assets/img/Winter_up.jpg" alt="" class="member-photo">
-            <img src="./assets/img/Winter_all.jpg" alt="" class="member-photo">
+            <div class="member-photo-wrapper">
+                <img src="./assets/img/Winter_up.jpg" alt="" class="front">
+                <img src="./assets/img/Winter_all.jpg" alt="" class="back">
+            </div>
             <div class="member-info">
                 <h1>WINTER</h1>
                 <p>NAME: WINTER</p>
@@ -241,8 +254,10 @@
         </div>
 
         <div class="member-card" onclick="showProfile('Ningning')">
-            <img src="assets/img/NIngning_up.jpg" alt="" class="member-photo">
-            <img src="./assets/img/NIngning_all.jpg" alt="" class="member-photo">
+            <div class="member-photo-wrapper">
+                <img src="./assets/img/Ningning_up.jpg" alt="" class="front">
+                <img src="./assets/img/Ningning_all.jpg" alt="" class="back">
+            </div>
             <div class="member-info">
                 <h1>NINGNING</h1>
                 <p>NAME: NINGNING</p>
@@ -251,8 +266,10 @@
         </div>
 
         <div class="member-card" onclick="showProfile('Giselle')">
-            <img src="./assets/img/Giselle_up.jpg" alt="" class="member-photo">
-            <img src="./assets/img/Giselle_ll.jpg" alt="" class="member-photo">
+            <div class="member-photo-wrapper">
+                <img src="./assets/img/Giselle_up.jpg" alt="" class="front">
+                <img src="./assets/img/Giselle_all.jpg" alt="" class="back">
+            </div>
             <div class="member-info">
                 <h1>GISELLE</h1>
                 <p>NAME: GISELLE</p>
@@ -261,7 +278,11 @@
         </div>
     </section>
 
-    <script src="./assets/js/script.js"></script>
 
+    <footer class="site-footer">
+        <p>Copyright © SM ENTERTAINMENT CO.,LTD. All Rights Reserved.</p>
+    </footer>
+
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
