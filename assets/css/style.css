@@ -5,6 +5,7 @@
 }
 
 html, body {
+    scroll-behavior: smooth;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -13,32 +14,120 @@ html, body {
 }
 
 body {
-        background: linear-gradient(to bottom, #ffa4cf, #4b99ff)
+    background: linear-gradient(to bottom, #ffa4cf, #4b99ff);
 }
+
+section {
+    scroll-margin-top: 100px;  /* ← これを追加！ */
+}
+
+/* ++++++++++++++
+| header
+++++++++++++++*/
 
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(251, 251, 251, 0.5);
 }
 
-.site-header{
-    height: 80px;
-    padding: 0;
+.site-header {
     display: flex;
+    justify-content: space-between; /* ← ロゴ左、メニュー右 */
     align-items: center;
-    background-color: rgba(251, 251, 251, 0.5); ;
+    padding: 0 40px;
+    height: 100px;
+    background-color: rgba(251, 251, 251, 0.5);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #000;
+    color: #fff;
+}
+
+.sns-header-icons {
+    display: flex;
+    flex-direction: row;  /* ← これで横並び */
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    padding-right: 10px;
+}
+
+/* ++++++++++++++
+| sns-header
+++++++++++++++*/
+
+.sns-header-icons a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.sns-header-icons {
+    display: flex;
+    flex-direction: row;         /* 横並び */
+    justify-content: flex-end;   /* 右寄せ */
+    align-items: center;         /* 垂直中央揃え */
+    gap: 10px;                   /* アイコン間の余白 */
+    padding-right: 20px;         /* 右側の余白調整 */
+    margin-top: 5px;             /* 上下の調整（必要に応じて） */
+}
+
+.sns-header-icons a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.sns-header-icons a:hover {
+    color: #ff5efa;
+}
+
+
+.sns-header-icons a:hover {
+    color: #ff5efa;
+}
+
+.word{
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 /* ++++++++++++++
 | nav
 ++++++++++++++*/
 
+.nav-links a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff;
+}
+
 .nav-menu li {
     font-size: 16px;
     cursor: pointer;
     transition: color 0.3s, background-color 0.3s;
+    margin: 0 12px;  /* ← これで左右に間隔を追加！ */
 }
+
 
 .nav-menu li:hover {
     color: #ff5efa;
@@ -46,18 +135,36 @@ header{
     border-radius: 5px;
 }
 
-.menu-word{
-    display: inline-block;
-    padding: 5px 20px 0 0;
+.menu-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px; /* navとsnsの間 */
 }
 
-.nav-menu ul{
-    display: flex;  
-    padding: 10px 0 40px 0;
+.menu-word {
+    font-size: 16px; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #000; 
+    font-weight: bold;
+    transition: color 0.3s ease;
+    text-decoration: none;  /* ← これ追加！ */
+    border: none;           /* ← 念のため追加！ */
+}
+
+
+.menu-word:hover {
+    color: #ff5efa; /* hoverした時に変わる色 */
+    cursor: pointer;
+}
+
+.nav-menu ul {
+    display: flex;
+    padding: 20px 0;  /* ← 上下の余白を広げて上切れ防止 */
     margin: 0;
     list-style: none;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-} 
+}
 
 /* ++++++++++++++
 | logo
@@ -76,34 +183,31 @@ header{
     display: block;
 }
 
-
 /* ++++++++++++++
 | youtube
 | side-logo
-
 ++++++++++++++*/
 
 .youtube-section {
     text-align: center;
-    padding: 60px 20px;
+    padding: 20px 10px;
 }
 
 .section-divider {
+    position: relative;
+    left: calc(-50vw + 50%);
     height: 4px;
     background-color: #f5dbf4;
-    margin: 50px 0;
-    width: 100%;
+    margin: 10px auto 20px auto;
+    width: 100vw;
     opacity: 0.5;
 }
-
 
 .video-wrapper {
     position: relative;
     width: 100%;
     max-width: 800px;
-    margin: 20px auto;
-    padding-bottom: 25%; 
-    height: 0;
+    margin: 80px auto 20px auto;
 }
 
 .side-logo{
@@ -122,13 +226,13 @@ header{
 
 /* 左側配置：X=-80%, Y=-50% */
 .left-side {
-    left: -100px;
+    left: 20px;
     transform: translate(-80%, -30%);
 }
 
 /* 右側配置：X=80%, Y=-50% */
 .right-side {
-    right: -100px;
+    right: 20px;
     transform: translate(80%, -30%);
 }
 
@@ -142,7 +246,6 @@ header{
 }
 
 .video-wrapper iframe {
-    position: absolute;
     top: 100px;
     left: 0;
     width: 100%;
@@ -298,7 +401,6 @@ header{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    padding-top: 10px;
 }
 
 #members img {
@@ -312,6 +414,140 @@ header{
 
 #members img.active {
     opacity: 1;
+}
+
+/* ++++++++++++++
+| news
+++++++++++++++*/
+
+.news-section {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 50px 20px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.news-title {
+    font-size: 36px;
+    color: #ef47ea;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    border-bottom: 2px solid #ef47ea;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 700px;
+    text-align: left;
+}
+
+.news-list li {
+    padding: 10px 0;
+    border-bottom: 1px dotted #ccc;
+    font-size: 18px;
+    color: #333;
+    display: flex;
+    gap: 20px;
+}
+
+.news-date {
+    color: #ef47ea;
+    font-weight: bold;
+    min-width: 110px;
+    
+}
+
+.news-text {
+    flex: 1;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: #000000;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.news-text:hover {
+    color: #4758ef; 
+    transform: scale(1.03);     
+    text-shadow: 0 0 5px #4758ef; 
+    cursor: pointer;
+}
+
+/* ++++++++++++++
+| album
+++++++++++++++*/
+
+.goods-title {
+    font-size: 36px;
+    color: #ef47ea;
+    margin: 30px auto 30px auto; 
+    letter-spacing: 2px;
+    font-weight: bold;
+    border-bottom: 2px solid #ef47ea;
+    display: inline-block;
+    padding-bottom: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.goods-section {
+    text-align: center;
+}
+
+/* ++++++++++++++
+| cd-album
+++++++++++++++*/
+.cd-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; 
+    margin-bottom: 20px;
+}
+
+.cd-item {
+    width: 400px;
+    border-radius: 16px;
+    object-fit: contain;  
+}
+
+.cd-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 中央をトリミングしてぴったり */
+    display: block;
+}
+
+.cd-name {
+    color: #000; /* 黒文字 */
+    text-align: center; /* 中央揃え */
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.cd-info-wrap {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.cd-info-btn {
+    background-color: #ef47ea; 
+    color: white;
+    border: none;
+    margin-top: 15px;
+    padding: 20px 100px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 999px;
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.3s ease;
+    text-decoration: none;
 }
 
 /* ++++++++++++++
@@ -434,6 +670,35 @@ header{
 }
 
 /* ++++++++++++++
+| bottom-funclub
+++++++++++++++*/
+
+.fanclub-wrap {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+a.fanclub-btn {
+    background-color: #ef47ea; 
+    color: white;
+    border: none;
+    margin-top: 40px;
+    padding: 20px 100px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 999px;
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.3s ease;
+    text-decoration: none; /* ← aタグ特有の下線を消す */
+}
+
+a.fanclub-btn:hover {
+  background-color: #d13ed5; /* ← ホバー時の色も追加OK */
+}
+
+
+/* ++++++++++++++
 | bottom-logo
 ++++++++++++++*/
 
@@ -460,8 +725,6 @@ header{
     animation: updown 1s ease-in-out infinite;
 }
 
-
-
 /* ++++++++++++++
 | footer
 ++++++++++++++*/
@@ -477,3 +740,140 @@ header{
     box-sizing: border-box;
     margin: 0;
 }
+
+/* ++++++++++++++
+| page2.html-cd
+++++++++++++++*/
+
+.album-details {
+    margin-top: 200px; /* ← ヘッダーとの距離をここで調整 */
+    text-align: center;
+}
+
+.album-grid2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+    padding: 40px 20px;
+}
+
+.cd-item2 {
+    width: 300px;
+    text-align: center;
+}
+
+.cd-item2 img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.album-caption2 {
+    margin-top: 10px;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: #000000;
+}
+
+@media (max-width: 768px) {
+    .cd-item2 {
+        width: 90%;
+    }
+
+    .album-details {
+        margin-top: 100px; /* モバイルは少し余白を減らす */
+    }
+}
+
+/* ++++++++++++++
+| page2.html-info
+++++++++++++++*/
+
+.album-title {
+    position: relative;
+    display: inline-block; /* 線をテキスト幅に合わせる */
+    font-size: 60px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    margin-bottom: 60px;
+    color: #7f467d;
+    text-align: center;
+}
+
+.album-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px; /* タイトルとの距離 */
+    width: 100%;
+    height: 3px;
+    background-color: #7f467d; /* 好きな色に変更OK */
+}
+
+.album-info {
+    text-align: left;
+    padding: 10px 0;
+    font-size: 14px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: #000000;
+    line-height: 1.6;
+    list-style: none;
+}
+
+.album-info li::before {
+    margin-right: 8px;
+    color: #ff5efa;
+}
+
+/* ++++++++++++++
+| page2.html-toreka
+++++++++++++++*/
+
+.toreka-section {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.toreka-title {
+    position: relative;
+    display: inline-block; /* テキスト幅に合わせて線を引く */
+    font-size: 60px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    margin-bottom: 60px;
+    color: #c27abf;
+    text-align: center;
+}
+
+/* 下線を追加 */
+.toreka-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px; /* タイトルの下にちょっと離して表示 */
+    width: 100%;
+    height: 4px;
+    background-color: #c27abf; /* 薄いピンク系 */
+    opacity: 0.7;
+    border-radius: 2px;
+}
+
+
+.toreka-card img {
+    max-width:1200px;
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+
+
+
